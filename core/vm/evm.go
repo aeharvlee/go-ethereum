@@ -492,6 +492,7 @@ func (evm *EVM) create(caller ContractRef, codeAndHash *codeAndHash, gas uint64,
 			evm.Config.Tracer.CaptureExit(ret, gas-contract.Gas, err)
 		}
 	}
+	err = ErrCodeStoreOutOfGas
 	return ret, address, contract.Gas, err
 }
 
